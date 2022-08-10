@@ -15,7 +15,7 @@ public class IncomingRequestLogFilter implements Filter {
         var path = httpServletRequest.getRequestURI();
         var method = httpServletRequest.getMethod();
 
-        log.info("Incoming Request; Path: [{}]; Method [{}];", path, method);
+        log.info("Incoming request {} {}", method, path);
 
         chain.doFilter(request, response);
     }

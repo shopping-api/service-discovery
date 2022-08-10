@@ -66,3 +66,15 @@ test {
 }
 
 test.finalizedBy jacocoTestReport
+
+jacocoTestReport {
+    dependsOn test // tests are required to run before generating the report
+
+    afterEvaluate {
+        classDirectories.setFrom(files(classDirectories.files.collect {
+            fileTree(dir: it, exclude: [
+                    "com/generoso/sd/ServiceDiscoveryServerApplication.class"
+            ])
+        }))
+    }
+}
