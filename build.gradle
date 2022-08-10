@@ -13,6 +13,7 @@ sonarqube {
         property "sonar.organization", "shopping-api"
         property "sonar.host.url", "https://sonarcloud.io"
         property "sonar.java.coveragePlugin", "jacoco"
+        property "sonar.junit.reportPaths", "build/test-results/test"
         property "sonar.coverage.jacoco.xmlReportPaths", "service-discovery-app/build/reports/jacoco/test/jacocoTestReport.xml"
     }
 }
