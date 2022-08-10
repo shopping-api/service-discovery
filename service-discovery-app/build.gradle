@@ -9,6 +9,12 @@ plugins {
     id 'java'
 }
 
+apply plugin: 'jacoco'
+
+jacoco {
+    toolVersion = "0.8.8"
+}
+
 java {
     sourceCompatibility = JavaVersion.VERSION_17
     targetCompatibility = JavaVersion.VERSION_17
@@ -58,3 +64,5 @@ dependencies {
 test {
     useJUnitPlatform()
 }
+
+test.finalizedBy jacocoTestReport

@@ -1,4 +1,4 @@
-package filter;
+package com.generoso.sd.filter;
 
 import com.generoso.sd.config.MetricsConfig;
 import com.generoso.sd.filter.ApplicationResponsesMetricsFilter;
