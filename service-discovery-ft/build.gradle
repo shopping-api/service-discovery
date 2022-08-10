@@ -1,8 +1,14 @@
 plugins {
-    id 'org.springframework.boot' version "${springBootVersion}"
-    id 'io.spring.dependency-management' version "${dependencyManagementVersion}"
+    id 'org.springframework.boot' version '2.6.6'
+    id 'io.spring.dependency-management' version '1.0.11.RELEASE'
     id "io.freefair.lombok"
     id 'java'
+}
+
+ext {
+    cucumberVersion = '7.4.1'
+    jacksonDataBinding = '2.13.3'
+    prometheusScraperVersion = '0.23.0.Final'
 }
 
 repositories {
@@ -17,10 +23,10 @@ dependencies {
     testImplementation "io.cucumber:cucumber-junit:${cucumberVersion}"
 
     testImplementation "com.fasterxml.jackson.core:jackson-databind:${jacksonDataBinding}"
-    testImplementation 'org.hawkular.agent:prometheus-scraper:0.23.0.Final'
+    testImplementation "org.hawkular.agent:prometheus-scraper:${prometheusScraperVersion}"
 
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
-    testImplementation("com.google.guava:guava:31.1-jre")
+    testImplementation "com.google.guava:guava:31.1-jre"
 }
 
 configurations {
