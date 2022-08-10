@@ -1,7 +1,7 @@
 import org.gradle.nativeplatform.platform.internal.DefaultNativePlatform
 
 plugins {
-    id 'org.springframework.boot' version '2.6.6'
+    id 'org.springframework.boot' version '2.7.2'
     id 'io.spring.dependency-management' version '1.0.11.RELEASE'
     id "com.gorylenko.gradle-git-properties" version '2.3.2'
     id 'pl.allegro.tech.build.axion-release' version '1.13.6'
