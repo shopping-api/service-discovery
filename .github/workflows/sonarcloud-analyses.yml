@@ -2,10 +2,13 @@ name: Sonarcloud analyses
 
 on:
   push:
-    branches:
-      - main
+    branches: [ main ]
+    paths:
+      - service-discovery-app/**
   pull_request:
-    types: [opened, synchronize, reopened]
+    branches: [ main ]
+    paths:
+      - service-discovery-app/**
 
 jobs:
   build:
