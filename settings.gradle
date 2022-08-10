@@ -1,0 +1,4 @@
+rootProject.name = 'service-discovery'
+include 'service-discovery-app'
+include 'service-discovery-ft'
+
