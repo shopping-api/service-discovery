@@ -26,13 +26,13 @@ java {
 }
 
 scmVersion {
-    tag { prefix = project.name + '-' }
+    tag { prefix = rootProject.name + '-' }
     versionIncrementer 'incrementMinor'
 }
 project.version = scmVersion.version
 
 def commonJarConfigClosure = {
-    archiveName = "${project.name}.jar"
+    archiveName = "${rootProject.name}.jar"
 }
 
 bootJar commonJarConfigClosure
