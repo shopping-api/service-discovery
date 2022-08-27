@@ -9,8 +9,8 @@ subprojects {
 
 sonarqube {
     properties {
-        property "sonar.projectKey", "shopping-api_service-discovery"
-        property "sonar.organization", "shopping-api"
+        property "sonar.projectKey", "groot-mg_service-discovery"
+        property "sonar.organization", "groot-mg"
         property "sonar.host.url", "https://sonarcloud.io"
         property "sonar.java.coveragePlugin", "jacoco"
         property "sonar.exclusions", "**/*ServiceDiscoveryServerApplication.java"
