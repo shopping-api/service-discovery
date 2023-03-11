@@ -1,7 +1,6 @@
 package com.generoso.sd.filter;
 
 import com.generoso.sd.config.MetricsConfig;
-import com.generoso.sd.filter.ApplicationResponsesMetricsFilter;
 import io.prometheus.client.Counter;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -12,7 +11,7 @@ import org.springframework.mock.web.MockHttpServletResponse;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 
-import javax.servlet.ServletException;
+import jakarta.servlet.ServletException;
 import java.io.IOException;
 
 import static org.assertj.core.api.Assertions.assertThat;

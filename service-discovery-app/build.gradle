@@ -58,7 +58,7 @@ repositories {
 dependencies {
     implementation 'org.springframework.boot:spring-boot-starter'
     implementation "org.springframework.cloud:spring-cloud-starter-netflix-eureka-server:${eurekaClientVersion}" // not resolved by dependency-management plugin
-    implementation 'javax.servlet:javax.servlet-api'
+    implementation 'jakarta.servlet:jakarta.servlet-api'
     implementation "org.owasp.encoder:encoder:${owaspEncoderVersion}"
 
     implementation 'io.micrometer:micrometer-registry-prometheus'
