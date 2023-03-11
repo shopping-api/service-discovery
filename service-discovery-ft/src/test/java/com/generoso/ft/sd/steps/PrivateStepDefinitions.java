@@ -1,7 +1,6 @@
 package com.generoso.ft.sd.steps;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.generoso.ft.sd.client.RequestTemplate;
 import com.generoso.ft.sd.client.model.Endpoint;
