@@ -10,7 +10,6 @@ import io.cucumber.java.en.When;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 
-import java.net.http.HttpResponse;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -57,7 +56,7 @@ public class RequestStepDefinitions {
 
     static {
         bodyMap = new HashMap<>();
-        bodyMap.put("APP_NAME",  "{\n" +
+        bodyMap.put("APP_NAME", "{\n" +
                 "  \"instance\": {\n" +
                 "    \"instanceId\": \"5784ed89d3cf:gateway:8080\",\n" +
                 "    \"app\": \"APP_NAME\",\n" +
