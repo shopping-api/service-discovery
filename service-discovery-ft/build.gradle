@@ -6,7 +6,7 @@ plugins {
 }
 
 ext {
-    cucumberVersion = '7.11.2'
+    cucumberVersion = '7.12.0'
     jacksonDataBinding = '2.14.2'
     prometheusScraperVersion = '0.23.0.Final'
 }
