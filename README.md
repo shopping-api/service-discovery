@@ -21,7 +21,7 @@ Run functional-tests:
 
 ### Run
 
-Local app is available on the port `8081`, health check endpoint is [http://localhost:8081/private/healthcheck](http://localhost:8081/private/health)
+Local app is available on the port `8081`, health check endpoint is [http://localhost:8081/private/health](http://localhost:8081/private/health)
 
 ```
 ./gradlew bootRun
