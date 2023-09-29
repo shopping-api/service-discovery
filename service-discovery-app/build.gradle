@@ -6,6 +6,7 @@ plugins {
     id "com.gorylenko.gradle-git-properties" version '2.4.1'
     id 'pl.allegro.tech.build.axion-release' version '1.15.3'
     id 'io.freefair.lombok'
+    id 'application'
     id 'java'
 }
 

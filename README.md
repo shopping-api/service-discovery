@@ -5,6 +5,29 @@ The purpose of a service discovery is load balancing and failover of middle-tier
 
 Each service will self register in the service discovery and the API Gateway responsible for receiving the user requests, will forward the requests to the registered services in the service discovery.
 
-## How to run
+## Build, tests and run
 
-Service discovery should run together with the API Gateway and other services, to run this project, please see [docker-local-setup](https://github.com/groot-mg/docker-local-setup).
+Service discovery does not have any dependency on the `groot-mg` project, so it is easy to run it locally. 
+
+Build with gradle (build + unit tests):
+```
+./gradlew build
+```
+
+Run functional-tests:
+```
+./gradlew cucumber
+```
+
+### Run
+
+Local app is available on the port `8081`, health check endpoint is [http://localhost:8081/private/healthcheck](http://localhost:8081/private/health)
+
+```
+./gradlew bootRun
+ ```
+
+Alternatively, it is possible to run using `java -jar service-discovery-app/build/libs/service-discovery.jar`
+
+### Run together with the project
+Service discovery should run together with the API Gateway and other services in the project, to run all together, please see [docker-local-setup](https://github.com/groot-mg/docker-local-setup).
