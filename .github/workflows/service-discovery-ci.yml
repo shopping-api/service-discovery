@@ -34,7 +34,7 @@ jobs:
           java-version: '17'
           distribution: 'zulu'
       - name: Build Service Discovery module
-        run: ./gradlew --no-daemon :service-discovery-app:build
+        run: ./gradlew --no-daemon :service-discovery-app:build -x test
 
   test:
     runs-on: ubuntu-latest
