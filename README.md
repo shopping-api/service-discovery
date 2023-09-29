@@ -7,8 +7,6 @@ Each service will self register in the service discovery and the API Gateway res
 
 ## Build, tests and run
 
-Service discovery does not have any dependency on the `groot-mg` project, so it is easy to run it locally. 
-
 Build with gradle (build + unit tests):
 ```
 ./gradlew build
@@ -20,6 +18,8 @@ Run functional-tests:
 ```
 
 ### Run
+
+Service discovery does not have any dependency on the `groot-mg` project, so it is easy to run it locally.
 
 Local app is available on the port `8081`, health check endpoint is [http://localhost:8081/private/health](http://localhost:8081/private/health)
 
