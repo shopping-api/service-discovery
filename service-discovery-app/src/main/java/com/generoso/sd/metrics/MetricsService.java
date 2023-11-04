@@ -22,6 +22,8 @@ public class MetricsService {
 
         Counter.builder("application.responses.total")
                 .description("Metrics for application responses per endpoint, method and http response code.")
-                .tags(tags).register(meterRegistry).increment();
+                .tags(tags)
+                .register(meterRegistry)
+                .increment();
     }
 }
