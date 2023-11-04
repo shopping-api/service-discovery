@@ -2,7 +2,7 @@ package com.generoso.sd.config;
 
 import com.generoso.sd.filter.ApplicationResponsesMetricsFilter;
 import com.generoso.sd.filter.IncomingRequestLogFilter;
-import io.prometheus.client.Counter;
+import com.generoso.sd.metrics.MetricsService;
 import org.springframework.boot.web.servlet.FilterRegistrationBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -19,8 +19,8 @@ public class FiltersConfig {
 
     @Bean
     public FilterRegistrationBean<ApplicationResponsesMetricsFilter> responseMetricFilter(
-            Counter responseCounter) {
-        var filter = new FilterRegistrationBean<>(new ApplicationResponsesMetricsFilter(responseCounter));
+            MetricsService metricsService) {
+        var filter = new FilterRegistrationBean<>(new ApplicationResponsesMetricsFilter(metricsService));
         filter.setOrder(1);
         return filter;
     }
