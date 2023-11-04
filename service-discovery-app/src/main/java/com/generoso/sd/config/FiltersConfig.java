@@ -1,7 +1,7 @@
 package com.generoso.sd.config;
 
 import com.generoso.sd.filter.ApplicationResponsesMetricsFilter;
-import com.generoso.sd.filter.IncomingRequestLogFilter;
+import com.generoso.sd.filter.RequestLoggingFilter;
 import com.generoso.sd.metrics.MetricsService;
 import org.springframework.boot.web.servlet.FilterRegistrationBean;
 import org.springframework.context.annotation.Bean;
@@ -11,8 +11,8 @@ import org.springframework.context.annotation.Configuration;
 public class FiltersConfig {
 
     @Bean
-    public FilterRegistrationBean<IncomingRequestLogFilter> incomingRequestLogFilter() {
-        var filter = new FilterRegistrationBean<>(new IncomingRequestLogFilter());
+    public FilterRegistrationBean<RequestLoggingFilter> incomingRequestLogFilter() {
+        var filter = new FilterRegistrationBean<>(new RequestLoggingFilter());
         filter.setOrder(0);
         return filter;
     }

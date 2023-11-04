@@ -1,7 +1,7 @@
 package com.generoso.sd.config;
 
 import com.generoso.sd.filter.ApplicationResponsesMetricsFilter;
-import com.generoso.sd.filter.IncomingRequestLogFilter;
+import com.generoso.sd.filter.RequestLoggingFilter;
 import com.generoso.sd.metrics.MetricsService;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -21,7 +21,7 @@ class FilterConfigTest {
     private MetricsService metricsService;
 
     @Autowired
-    private FilterRegistrationBean<IncomingRequestLogFilter> incomingRequestLogFilter;
+    private FilterRegistrationBean<RequestLoggingFilter> incomingRequestLogFilter;
 
     @Autowired
     private FilterRegistrationBean<ApplicationResponsesMetricsFilter> applicationResponsesMetricsFilter;

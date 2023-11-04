@@ -12,14 +12,14 @@ import java.io.IOException;
 import static com.generoso.sd.utils.LogUtils.assertMessageWasInLogs;
 import static com.generoso.sd.utils.LogUtils.getListAppenderForClass;
 
-class IncomingRequestLogFilterTest {
+class RequestLoggingFilterTest {
 
     @Test
     void shouldIncludeALogLine() throws ServletException, IOException {
         // Arrange
-        var listAppender = getListAppenderForClass(IncomingRequestLogFilter.class);
+        var listAppender = getListAppenderForClass(RequestLoggingFilter.class);
 
-        var filter = new IncomingRequestLogFilter();
+        var filter = new RequestLoggingFilter();
 
         var request = new MockHttpServletRequest();
         request.setMethod("GET");
