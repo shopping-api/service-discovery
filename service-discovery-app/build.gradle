@@ -17,7 +17,7 @@ jacoco {
 }
 
 ext {
-    eurekaServerVersion = '4.0.3'
+    eurekaServerVersion = '4.1.2'
     owaspEncoderVersion = '1.2.3'
 }
 
