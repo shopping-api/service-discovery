@@ -14,7 +14,9 @@ dependencies {
     testImplementation(libs.cucumber.java)
 
     testImplementation(libs.jackson.databing)
-    testImplementation(libs.prometheus.scraper)
+    testImplementation(libs.prometheus.scraper) {
+        exclude(group: "com.google.protobuf")
+    }
 
     testImplementation(libs.spring.boot.starter.test)
 }
