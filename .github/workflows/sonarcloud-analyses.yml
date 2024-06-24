@@ -5,10 +5,12 @@ on:
     branches: [ main ]
     paths:
       - service-discovery-app/**
+      - service-discovery-ft/**
   pull_request:
     branches: [ main ]
     paths:
       - service-discovery-app/**
+      - service-discovery-ft/**
 
 jobs:
   sonar-analyses:
