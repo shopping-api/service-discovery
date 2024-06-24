@@ -4,13 +4,13 @@ on:
   push:
     branches: [ main ]
     paths:
-      - service-discovery-app/**
-      - service-discovery-ft/**
+      - sd-app/**
+      - sd-ft/**
   pull_request:
     branches: [ main ]
     paths:
-      - service-discovery-app/**
-      - service-discovery-ft/**
+      - sd-app/**
+      - sd-ft/**
 
 jobs:
   sonar-analyses:

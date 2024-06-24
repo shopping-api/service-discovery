@@ -10,14 +10,14 @@ Each service will self register in the service discovery and the API Gateway res
 ### Build + unit tests
 Build with gradle (build + unit tests):
 ```
-./gradlew service-discovery-app:build
+./gradlew sd-app:build
 ```
 
 ### Functional tests
 
 The application needs to be running before run the Functional Tests:
 ```shell
-./gradlew service-discovery-app:bootRun
+./gradlew sd-app:bootRun
 ```
 
 Run functional-tests:
@@ -35,7 +35,7 @@ Local app is available on the port `8081`, health check endpoint is [http://loca
 ./gradlew bootRun
  ```
 
-Alternatively, it is possible to run using `java -jar service-discovery-app/build/libs/service-discovery.jar`
+Alternatively, it is possible to run using `java -jar sd-app/build/libs/service-discovery.jar`
 
 ### Run together with the project
 Service discovery should run together with the API Gateway and other services in the project, to run all together, please see [docker-local-setup](https://github.com/groot-mg/docker-local-setup).
