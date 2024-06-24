@@ -17,7 +17,6 @@ dependencies {
     testImplementation(libs.prometheus.scraper)
 
     testImplementation(libs.spring.boot.starter.test)
-    testImplementation(libs.google.guava)
 }
 
 configurations {
