@@ -7,9 +7,17 @@ Each service will self register in the service discovery and the API Gateway res
 
 ## Build, tests and run
 
+### Build + unit tests
 Build with gradle (build + unit tests):
 ```
-./gradlew build
+./gradlew service-discovery-app:build
+```
+
+### Functional tests
+
+The application needs to be running before run the Functional Tests:
+```shell
+./gradlew service-discovery-app:bootRun
 ```
 
 Run functional-tests:
