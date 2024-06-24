@@ -1,6 +1,6 @@
 spring:
   jmx:
-    enable: false
+    enabled: false
   application:
     name: service-discovery
   profiles:

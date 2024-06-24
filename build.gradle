@@ -1,6 +1,5 @@
 plugins {
-    id 'io.freefair.lombok' version '8.4' apply false
-    id 'org.sonarqube' version '5.0.0.4638'
+    alias(libs.plugins.sonarqube)
 }
 
 subprojects {

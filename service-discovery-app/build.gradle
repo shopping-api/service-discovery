@@ -1,24 +1,18 @@
 import org.gradle.nativeplatform.platform.internal.DefaultNativePlatform
 
 plugins {
-    id 'org.springframework.boot' version '3.2.7'
-    id 'io.spring.dependency-management' version '1.1.5'
-    id "com.gorylenko.gradle-git-properties" version '2.4.2'
-    id 'pl.allegro.tech.build.axion-release' version '1.17.2'
-    id 'io.freefair.lombok'
-    id 'application'
-    id 'java'
+    alias(libs.plugins.spring.boot)
+    alias(libs.plugins.spring.dependency.management)
+    alias(libs.plugins.git.properties)
+    alias(libs.plugins.axion.release)
+    alias(libs.plugins.lombok)
+    alias(libs.plugins.jacoco)
+    alias(libs.plugins.application)
+    alias(libs.plugins.java)
 }
-
-apply plugin: 'jacoco'
 
 jacoco {
     toolVersion = "0.8.8"
-}
-
-ext {
-    eurekaServerVersion = '4.1.2'
-    owaspEncoderVersion = '1.2.3'
 }
 
 java {
@@ -55,13 +49,13 @@ repositories {
 }
 
 dependencies {
-    implementation 'org.springframework.boot:spring-boot-starter'
-    implementation "org.springframework.cloud:spring-cloud-starter-netflix-eureka-server:${eurekaServerVersion}" // not resolved by dependency-management plugin
-    implementation 'jakarta.servlet:jakarta.servlet-api'
-    implementation "org.owasp.encoder:encoder:${owaspEncoderVersion}"
-    implementation 'io.micrometer:micrometer-registry-prometheus'
+    implementation(libs.spring.boot.starter)
+    implementation(libs.netflix.eureka.server)
+    implementation(libs.jakarta.servlet.api)
+    implementation(libs.micrometer.prometheus)
+    implementation(libs.owasp.encoder)
 
-    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    testImplementation(libs.spring.boot.starter.test)
 }
 
 test {

@@ -1,14 +1,8 @@
 plugins {
-    id 'org.springframework.boot' version '3.2.7'
-    id 'io.spring.dependency-management' version '1.1.5'
-    id "io.freefair.lombok"
-    id 'java'
-}
-
-ext {
-    cucumberVersion = '7.18.0'
-    jacksonDataBinding = '2.15.3'
-    prometheusScraperVersion = '0.23.0.Final'
+    alias(libs.plugins.spring.boot)
+    alias(libs.plugins.spring.dependency.management)
+    alias(libs.plugins.lombok)
+    alias(libs.plugins.java)
 }
 
 repositories {
@@ -18,15 +12,15 @@ repositories {
 dependencies {
     testImplementation project(":service-discovery-app")
 
-    testImplementation "io.cucumber:cucumber-spring:${cucumberVersion}"
-    testImplementation "io.cucumber:cucumber-java:${cucumberVersion}"
-    testImplementation "io.cucumber:cucumber-junit:${cucumberVersion}"
+    testImplementation(libs.cucumber.spring)
+    testImplementation(libs.cucumber.java)
+    testImplementation(libs.cucumber.junit)
 
-    testImplementation "com.fasterxml.jackson.core:jackson-databind:${jacksonDataBinding}"
-    testImplementation "org.hawkular.agent:prometheus-scraper:${prometheusScraperVersion}"
+    testImplementation(libs.jackson.databing)
+    testImplementation(libs.prometheus.scraper)
 
-    testImplementation 'org.springframework.boot:spring-boot-starter-test'
-    testImplementation "com.google.guava:guava:33.2.1-jre"
+    testImplementation(libs.spring.boot.starter.test)
+    testImplementation(libs.google.guava)
 }
 
 configurations {
