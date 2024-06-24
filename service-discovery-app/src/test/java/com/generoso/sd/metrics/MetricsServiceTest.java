@@ -15,16 +15,16 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 class MetricsServiceTest {
 
-    private MeterRegistry meterRegistry = new PrometheusMeterRegistry(PrometheusConfig.DEFAULT);
+    private final MeterRegistry meterRegistry = new PrometheusMeterRegistry(PrometheusConfig.DEFAULT);
 
-    private MetricsService metricsService = new MetricsService(meterRegistry);
+    private final MetricsService metricsService = new MetricsService(meterRegistry);
 
     @Test
     void thenCallingServiceToRegisterApplicationResponseTotal_shouldIncreaseMetric() {
         // Arrange
-        String method = "GET";
-        String path = "/example";
-        String status = "200";
+        var method = "GET";
+        var path = "/example";
+        var status = "200";
 
         // Act
         metricsService.applicationResponseTotal(method, path, status);
@@ -37,7 +37,7 @@ class MetricsServiceTest {
     }
 
     private static Optional<Double> getCounterValue(MeterRegistry registry, String name, String[] labelNames, String... values) {
-        Tags tags = getTags(labelNames, values);
+        var tags = getTags(labelNames, values);
         return registry.getMeters().stream().filter(
                         m -> m.getId().getName().equals(name) && m.getId().getTags()
                                 .containsAll(tags.stream().toList())).findFirst()
@@ -45,8 +45,8 @@ class MetricsServiceTest {
     }
 
     private static Tags getTags(String[] labelNames, String[] values) {
-        Tags tags = Tags.empty();
-        int idx = 0;
+        var tags = Tags.empty();
+        var idx = 0;
         for (String label : labelNames) {
             tags = tags.and(Tag.of(label, values[idx++]));
         }
