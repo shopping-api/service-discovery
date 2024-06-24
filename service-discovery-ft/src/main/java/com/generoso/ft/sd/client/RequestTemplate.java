@@ -9,7 +9,6 @@ import java.net.URISyntaxException;
 import java.net.http.HttpRequest;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Objects;
 
 import static java.lang.String.format;
 
@@ -74,7 +73,7 @@ public abstract class RequestTemplate {
             return new URI(finalUri);
         } catch (URISyntaxException e) {
             throw new RuntimeException(format("Error creating uri: %s%s%s. Error message: %s", host, contextPath,
-                    getEndpoint().getPath(), e.getMessage()));
+                getEndpoint().getPath(), e.getMessage()));
         }
     }
 

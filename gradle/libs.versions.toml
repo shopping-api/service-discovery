@@ -42,7 +42,6 @@ owasp-encoder = { module = 'org.owasp.encoder:encoder', version.ref = 'owaspEnco
 # Test libraries
 cucumber-spring = { module = 'io.cucumber:cucumber-spring', version.ref = 'cucumberVersion' }
 cucumber-java = { module = 'io.cucumber:cucumber-java', version.ref = 'cucumberVersion' }
-cucumber-junit = { module = 'io.cucumber:cucumber-junit', version.ref = 'cucumberVersion' }
 jackson-databing = { module = 'com.fasterxml.jackson.core:jackson-databind', version.ref = 'jacksonDataBindingVersion' }
 prometheus-scraper = { module = 'org.hawkular.agent:prometheus-scraper', version.ref = 'prometheusScraperVersion' }
 google-guava = {module = 'com.google.guava:guava', version.ref = 'googleGuavaVersion'}

@@ -10,22 +10,19 @@ repositories {
 }
 
 dependencies {
-    testImplementation project(":service-discovery-app")
+    implementation(libs.cucumber.spring)
+    implementation(libs.cucumber.java)
 
-    testImplementation(libs.cucumber.spring)
-    testImplementation(libs.cucumber.java)
-    testImplementation(libs.cucumber.junit)
+    implementation(libs.jackson.databing)
+    implementation(libs.prometheus.scraper)
 
-    testImplementation(libs.jackson.databing)
-    testImplementation(libs.prometheus.scraper)
-
-    testImplementation(libs.spring.boot.starter.test)
-    testImplementation(libs.google.guava)
+    implementation(libs.spring.boot.starter.test)
+    implementation(libs.google.guava)
 }
 
 configurations {
     cucumberRuntime {
-        extendsFrom testImplementation
+        extendsFrom implementation
     }
 }
 

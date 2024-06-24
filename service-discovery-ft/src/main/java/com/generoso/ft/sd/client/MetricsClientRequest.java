@@ -1,5 +1,6 @@
 package com.generoso.ft.sd.client;
 
+import lombok.AllArgsConstructor;
 import org.hawkular.agent.prometheus.text.TextPrometheusMetricsProcessor;
 import org.hawkular.agent.prometheus.types.MetricFamily;
 import org.hawkular.agent.prometheus.walkers.CollectorPrometheusMetricsWalker;
@@ -11,13 +12,12 @@ import java.nio.charset.StandardCharsets;
 import java.util.List;
 
 @Component
+@AllArgsConstructor(onConstructor_ = @__(@Autowired))
 public class MetricsClientRequest {
 
-    @Autowired
-    private PrivateMetricsRequestTemplate privateMetricsRequestTemplate;
+    private final PrivateMetricsRequestTemplate privateMetricsRequestTemplate;
 
-    @Autowired
-    private Client client;
+    private final Client client;
 
     public List<MetricFamily> collectMetrics() {
         var response = client.execute(privateMetricsRequestTemplate);

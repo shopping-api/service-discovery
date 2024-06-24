@@ -35,11 +35,11 @@ public class TestConfiguration {
 
     @Bean
     public Map<Endpoint, RequestTemplate> requestTemplates(
-        @Qualifier("service-request") List<RequestTemplate> templates) {
+        @Qualifier("serviceRequest") List<RequestTemplate> templates) {
         return buildMap(templates);
     }
 
-    private Map<Endpoint, RequestTemplate> buildMap(@Qualifier("service-request") List<RequestTemplate> templates) {
+    private Map<Endpoint, RequestTemplate> buildMap(List<RequestTemplate> templates) {
         var map = new EnumMap<Endpoint, RequestTemplate>(Endpoint.class);
         templates.forEach(t -> map.put(t.getEndpoint(), t));
         return map;

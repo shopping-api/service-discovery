@@ -15,5 +15,5 @@ public enum Endpoint {
     ADD_APP("/eureka/apps", "POST");
 
     private final String path;
-    private final String method;;
+    private final String method;
 }

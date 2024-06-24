@@ -10,7 +10,18 @@ import org.springframework.core.env.PropertySource;
 import org.springframework.core.io.Resource;
 
 import java.io.IOException;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.LinkedHashSet;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Map;
+import java.util.Objects;
+import java.util.Optional;
+import java.util.Set;
 
 @Slf4j
 public class YamlFileApplicationContextInitializer implements ApplicationContextInitializer<ConfigurableApplicationContext> {
@@ -22,7 +33,7 @@ public class YamlFileApplicationContextInitializer implements ApplicationContext
         ConfigurableEnvironment environment = applicationContext.getEnvironment();
         List<PropertySource<?>> commonPropertySources = profileToPropertySourcesMap.get(null);
         Set<PropertySource<?>> activeNonCommonPropertySourcesInPriorityOrder =
-                getActiveNonCommonPropertySourcesInPriorityOrder(environment, profileToPropertySourcesMap);
+            getActiveNonCommonPropertySourcesInPriorityOrder(environment, profileToPropertySourcesMap);
 
         List<PropertySource<?>> propertySourcesInPriorityOrder = new LinkedList<>();
         propertySourcesInPriorityOrder.addAll(commonPropertySources);
@@ -30,32 +41,32 @@ public class YamlFileApplicationContextInitializer implements ApplicationContext
 
         List<PropertySource<?>> propertySourcesInReversePriorityOrder = Lists.reverse(propertySourcesInPriorityOrder);
         propertySourcesInReversePriorityOrder.forEach(propertySource ->
-                environment.getPropertySources().addFirst(propertySource));
+            environment.getPropertySources().addFirst(propertySource));
     }
 
     private List<PropertySource<?>> loadPropertySources(ConfigurableApplicationContext applicationContext) {
         try {
-            String resourceLocation = "classpath:/test.yml";
+            String resourceLocation = "classpath:/application.yml";
             Resource resource = applicationContext.getResource(resourceLocation);
             YamlPropertySourceLoader sourceLoader = new YamlPropertySourceLoader();
             return sourceLoader.load(resourceLocation, resource);
         } catch (IOException e) {
-            throw new RuntimeException(e);
+            throw new IllegalStateException(e);
         }
     }
 
     private Map<String, List<PropertySource<?>>> createProfileToPropertySourcesMap(
-            List<PropertySource<?>> propertySources) {
+        List<PropertySource<?>> propertySources) {
         Map<String, List<PropertySource<?>>> profileToPropertySourcesMap = new HashMap<>();
         propertySources.forEach(propertySource -> getProfiles(propertySource)
-                .forEach(profile -> addPropertySource(profileToPropertySourcesMap, propertySource, profile)));
+            .forEach(profile -> addPropertySource(profileToPropertySourcesMap, propertySource, profile)));
         return profileToPropertySourcesMap;
     }
 
     private void addPropertySource(Map<String, List<PropertySource<?>>> profileToPropertySourcesMap,
                                    PropertySource<?> propertySource, String profile) {
         profileToPropertySourcesMap.computeIfAbsent(profile,
-                k -> new ArrayList<>()).add(propertySource);
+            k -> new ArrayList<>()).add(propertySource);
     }
 
     private Iterable<String> getProfiles(PropertySource<?> propertySource) {
@@ -79,11 +90,11 @@ public class YamlFileApplicationContextInitializer implements ApplicationContext
         }
 
         throw new UnsupportedOperationException("Unsupported type of spring profiles property source value - "
-                + propertySourceValue.getClass());
+            + propertySourceValue.getClass());
     }
 
     private Set<PropertySource<?>> getActiveNonCommonPropertySourcesInPriorityOrder(
-            ConfigurableEnvironment environment, Map<String, List<PropertySource<?>>> profileToPropertySourcesMap) {
+        ConfigurableEnvironment environment, Map<String, List<PropertySource<?>>> profileToPropertySourcesMap) {
         String[] activeProfilesArray = environment.getActiveProfiles();
         Iterable<String> activeProfiles = Collections.emptyList();
 
@@ -92,8 +103,8 @@ public class YamlFileApplicationContextInitializer implements ApplicationContext
         } else {
             List<PropertySource<?>> commonPropertySources = profileToPropertySourcesMap.get(null);
             Optional<Object> commonPropertySourcesActiveProfilesOptional = commonPropertySources.stream()
-                    .map(ps -> ps.getProperty("spring.profiles.active")).filter(Objects::nonNull)
-                    .findFirst();
+                .map(ps -> ps.getProperty("spring.profiles.active")).filter(Objects::nonNull)
+                .findFirst();
 
             if (commonPropertySourcesActiveProfilesOptional.isPresent()) {
                 Object commonPropertySourcesActiveProfilesObj = commonPropertySourcesActiveProfilesOptional.get();

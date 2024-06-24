@@ -1,6 +1,7 @@
 package com.generoso.ft.sd.state;
 
 import com.generoso.ft.sd.client.RequestTemplate;
+import io.cucumber.spring.ScenarioScope;
 import lombok.Setter;
 import org.springframework.stereotype.Component;
 
@@ -8,6 +9,7 @@ import java.net.http.HttpResponse;
 
 @Setter
 @Component
+@ScenarioScope
 public class ScenarioState {
 
     private RequestTemplate requestTemplate;

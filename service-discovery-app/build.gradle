@@ -69,7 +69,7 @@ jacocoTestReport {
     afterEvaluate {
         classDirectories.setFrom(files(classDirectories.files.collect {
             fileTree(dir: it, exclude: [
-                    "com/generoso/sd/ServiceDiscoveryServerApplication.class"
+                    "com/generoso/sd/ServiceDiscoveryApplication.class"
             ])
         }))
     }

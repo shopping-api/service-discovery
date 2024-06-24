@@ -8,7 +8,9 @@ import io.cucumber.java.en.Then;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 
-import static org.junit.Assert.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 @RequiredArgsConstructor(onConstructor = @__(@Autowired))
 public class ResponseStepDefinitions {

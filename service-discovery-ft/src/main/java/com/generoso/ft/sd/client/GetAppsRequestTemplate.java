@@ -7,18 +7,18 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
 @Component
-@Qualifier("service-request")
-public class AddAppRequestTemplate extends RequestTemplate {
+@Qualifier("serviceRequest")
+public class GetAppsRequestTemplate extends RequestTemplate {
 
     @Autowired
-    public AddAppRequestTemplate(@Value("${service.host}") String host,
-                                 @Value("${service.context-path:}") String contextPath) {
+    public GetAppsRequestTemplate(@Value("${service.host}") String host,
+                                        @Value("${service.context-path:}") String contextPath) {
         super(host, contextPath);
     }
 
     @Override
     public Endpoint getEndpoint() {
-        return Endpoint.ADD_APP;
+        return Endpoint.GET_APPS;
     }
 
 
