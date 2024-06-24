@@ -39,7 +39,7 @@ jobs:
         run: ./gradlew --no-daemon :service-discovery-app:build
 
       - name: Start Spring Boot app
-        run: java -jar service-discovery-app/build/libs/service-discovery.jar
+        run: java -jar service-discovery-app/build/libs/service-discovery.jar &
 
       - name: Wait for Spring Boot to start
         run: |
