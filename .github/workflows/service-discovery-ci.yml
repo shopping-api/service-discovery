@@ -6,11 +6,13 @@ on:
     paths:
       - service-discovery-app/**
       - service-discovery-ft/**
+      - gradle/**
   pull_request:
     branches: [ main ]
     paths:
       - service-discovery-app/**
       - service-discovery-ft/**
+      - gradle/**
   workflow_dispatch:
     inputs:
       logLevel:
