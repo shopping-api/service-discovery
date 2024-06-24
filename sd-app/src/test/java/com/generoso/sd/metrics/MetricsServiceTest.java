@@ -4,9 +4,9 @@ package com.generoso.sd.metrics;
 import io.micrometer.core.instrument.MeterRegistry;
 import io.micrometer.core.instrument.Tag;
 import io.micrometer.core.instrument.Tags;
-import io.micrometer.prometheus.PrometheusConfig;
-import io.micrometer.prometheus.PrometheusCounter;
-import io.micrometer.prometheus.PrometheusMeterRegistry;
+import io.micrometer.prometheusmetrics.PrometheusConfig;
+import io.micrometer.prometheusmetrics.PrometheusCounter;
+import io.micrometer.prometheusmetrics.PrometheusMeterRegistry;
 import org.junit.jupiter.api.Test;
 
 import java.util.Optional;
