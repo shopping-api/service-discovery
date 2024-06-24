@@ -32,11 +32,9 @@ scmVersion {
 }
 project.version = scmVersion.version
 
-def commonJarConfigClosure = {
-    archiveName = "${rootProject.name}.jar"
+bootJar {
+    archiveFileName = "${rootProject.name}.jar"
 }
-
-bootJar commonJarConfigClosure
 
 springBoot {
     buildInfo {
@@ -61,7 +59,6 @@ dependencies {
     implementation "org.springframework.cloud:spring-cloud-starter-netflix-eureka-server:${eurekaServerVersion}" // not resolved by dependency-management plugin
     implementation 'jakarta.servlet:jakarta.servlet-api'
     implementation "org.owasp.encoder:encoder:${owaspEncoderVersion}"
-
     implementation 'io.micrometer:micrometer-registry-prometheus'
 
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
@@ -83,6 +80,6 @@ jacocoTestReport {
         }))
     }
     reports {
-        xml.enabled true
+        xml.required = true
     }
 }
