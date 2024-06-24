@@ -50,7 +50,11 @@ repositories {
 
 dependencies {
     implementation(libs.spring.boot.starter)
-    implementation(libs.netflix.eureka.server)
+    implementation(libs.netflix.eureka.server) {
+        exclude(group: "com.google.guava")
+        exclude(group: "com.thoughtworks.xstream")
+        exclude(group: "software.amazon.ion")
+    }
     implementation(libs.jakarta.servlet.api)
     implementation(libs.micrometer.prometheus)
     implementation(libs.owasp.encoder)
