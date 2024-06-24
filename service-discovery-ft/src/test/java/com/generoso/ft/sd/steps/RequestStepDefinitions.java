@@ -56,52 +56,54 @@ public class RequestStepDefinitions {
 
     static {
         bodyMap = new HashMap<>();
-        bodyMap.put("APP_NAME", "{\n" +
-                "  \"instance\": {\n" +
-                "    \"instanceId\": \"5784ed89d3cf:gateway:8080\",\n" +
-                "    \"app\": \"APP_NAME\",\n" +
-                "    \"appGroupName\": null,\n" +
-                "    \"ipAddr\": \"172.20.0.3\",\n" +
-                "    \"sid\": \"na\",\n" +
-                "    \"homePageUrl\": \"http://172.20.0.3:8080/\",\n" +
-                "    \"statusPageUrl\": \"http://172.20.0.3:8080/actuator/info\",\n" +
-                "    \"healthCheckUrl\": \"http://172.20.0.3:8080/actuator/health\",\n" +
-                "    \"secureHealthCheckUrl\": null,\n" +
-                "    \"vipAddress\": \"app_name\",\n" +
-                "    \"secureVipAddress\": \"app_name\",\n" +
-                "    \"countryId\": 1,\n" +
-                "    \"dataCenterInfo\": {\n" +
-                "      \"@class\": \"com.netflix.appinfo.InstanceInfo$DefaultDataCenterInfo\",\n" +
-                "      \"name\": \"MyOwn\"\n" +
-                "    },\n" +
-                "    \"hostName\": \"172.20.0.3\",\n" +
-                "    \"status\": \"UP\",\n" +
-                "    \"overriddenStatus\": \"UNKNOWN\",\n" +
-                "    \"leaseInfo\": {\n" +
-                "      \"renewalIntervalInSecs\": 30,\n" +
-                "      \"durationInSecs\": 90,\n" +
-                "      \"registrationTimestamp\": 0,\n" +
-                "      \"lastRenewalTimestamp\": 0,\n" +
-                "      \"evictionTimestamp\": 0,\n" +
-                "      \"serviceUpTimestamp\": 0\n" +
-                "    },\n" +
-                "    \"isCoordinatingDiscoveryServer\": false,\n" +
-                "    \"lastUpdatedTimestamp\": 1658954363496,\n" +
-                "    \"lastDirtyTimestamp\": 1658954365828,\n" +
-                "    \"actionType\": null,\n" +
-                "    \"asgName\": null,\n" +
-                "    \"port\": {\n" +
-                "      \"$\": 8080,\n" +
-                "      \"@enabled\": \"true\"\n" +
-                "    },\n" +
-                "    \"securePort\": {\n" +
-                "      \"$\": 443,\n" +
-                "      \"@enabled\": \"false\"\n" +
-                "    },\n" +
-                "    \"metadata\": {\n" +
-                "      \"management.port\": \"8080\"\n" +
-                "    }\n" +
-                "  }\n" +
-                "}");
+        bodyMap.put("APP_NAME", """
+            {
+                "instance": {
+                    "instanceId": "5784ed89d3cf:gateway:8080",
+                    "app": "APP_NAME",
+                    "appGroupName": null,
+                    "ipAddr": "172.20.0.3",
+                    "sid": "na",
+                    "homePageUrl": "http://172.20.0.3:8080/",
+                    "statusPageUrl": "http://172.20.0.3:8080/actuator/info",
+                    "healthCheckUrl": "http://172.20.0.3:8080/actuator/health",
+                    "secureHealthCheckUrl": null,
+                    "vipAddress": "app_name",
+                    "secureVipAddress": "app_name",
+                    "countryId": 1,
+                    "dataCenterInfo": {
+                      "@class": "com.netflix.appinfo.InstanceInfo$DefaultDataCenterInfo",
+                      "name": "MyOwn"
+                    },
+                    "hostName": "172.20.0.3",
+                    "status": "UP",
+                    "overriddenStatus": "UNKNOWN",
+                    "leaseInfo": {
+                      "renewalIntervalInSecs": 30,
+                      "durationInSecs": 90,
+                       "registrationTimestamp": 0,
+                       "lastRenewalTimestamp": 0,
+                       "evictionTimestamp": 0,
+                       "serviceUpTimestamp": 0
+                     },
+                    "isCoordinatingDiscoveryServer": false,
+                    "lastUpdatedTimestamp": 1658954363496,
+                    "lastDirtyTimestamp": 1658954365828,
+                    "actionType": null,
+                    "asgName": null,
+                    "port": {
+                       "$": 8080,
+                      "@enabled": "true"
+                    },
+                    "securePort": {
+                      "$": 443,
+                      "@enabled": "false"
+                    },
+                    "metadata": {
+                      "management.port": "8080"
+                    }
+                }
+            }
+            """);
     }
 }
