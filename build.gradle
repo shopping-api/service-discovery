@@ -16,6 +16,6 @@ sonarqube {
         property "sonar.organization", "groot-mg"
         property "sonar.host.url", "https://sonarcloud.io"
         property "sonar.java.coveragePlugin", "jacoco"
-        property "sonar.exclusions", "**/*ServiceDiscoveryApplication.java **/service-discovery-ft/**"
+        property "sonar.exclusions", "**/*ServiceDiscoveryApplication.java **/service-discovery-ft/src/main/java/com/generoso/ft/sd/steps/**"
     }
 }
