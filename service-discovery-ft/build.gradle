@@ -10,19 +10,19 @@ repositories {
 }
 
 dependencies {
-    implementation(libs.cucumber.spring)
-    implementation(libs.cucumber.java)
+    testImplementation(libs.cucumber.spring)
+    testImplementation(libs.cucumber.java)
 
-    implementation(libs.jackson.databing)
-    implementation(libs.prometheus.scraper)
+    testImplementation(libs.jackson.databing)
+    testImplementation(libs.prometheus.scraper)
 
-    implementation(libs.spring.boot.starter.test)
-    implementation(libs.google.guava)
+    testImplementation(libs.spring.boot.starter.test)
+    testImplementation(libs.google.guava)
 }
 
 configurations {
     cucumberRuntime {
-        extendsFrom implementation
+        extendsFrom testImplementation
     }
 }
 
