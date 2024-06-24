@@ -11,7 +11,7 @@ on:
       - service-discovery-app/**
 
 jobs:
-  build:
+  sonar-analyses:
     name: Build
     runs-on: ubuntu-latest
     steps:
