@@ -6,7 +6,7 @@ public class Main {
         var testArgs = new String[]{
             "--tags", "not @ignore",
             "--plugin", "pretty",
-            "--plugin", "html:sd-ft/reports/report.html",
+            "--plugin", "html:sd-ft/reports/cucumber-report.html",
             "--glue", "com.generoso.ft.sd",
             "classpath:features"
         };

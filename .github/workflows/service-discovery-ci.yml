@@ -41,13 +41,21 @@ jobs:
       - name: Build + unit tests
         run: ./gradlew --no-daemon :sd-app:build
 
+      - name: Archive unit test reports
+        if: always()
+        uses: actions/upload-artifact@v2
+        with:
+          name: unit-tests-report
+          path: |
+            sd-app/reports/tests/index.html
+
       - name: Start Spring Boot app
         run: java -jar sd-app/build/libs/service-discovery.jar &
 
       - name: Wait for Spring Boot to start
         run: |
           echo "Waiting for Spring Boot to start..."
-          sleep 5
+          sleep 3
 
       - name: Run functional tests
         run: ./gradlew --no-daemon :sd-ft:cucumber
@@ -56,3 +64,11 @@ jobs:
         run: |
           echo "Stopping Spring Boot app..."
           pkill -f 'java -jar sd-app/build/libs/service-discovery.jar'
+
+      - name: Archive Cucumber test reports
+        if: always()
+        uses: actions/upload-artifact@v2
+        with:
+            name: cucumber-tests-report
+            path: |
+                sd-ft/reports/cucumber-report.html
