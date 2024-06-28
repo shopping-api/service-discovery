@@ -19,7 +19,7 @@ public class FiltersConfig {
 
     @Bean
     public FilterRegistrationBean<ApplicationResponsesMetricsFilter> responseMetricFilter(
-            MetricsService metricsService) {
+        MetricsService metricsService) {
         var filter = new FilterRegistrationBean<>(new ApplicationResponsesMetricsFilter(metricsService));
         filter.setOrder(1);
         return filter;

@@ -48,9 +48,9 @@ public class MetricsStepDefinitions {
                                                                                    int increment) {
         var path = String.format("%s/%s", endpoint.getPath(), pathParameter);
         var initialCount = getResourceAndStatusCounterValue(metricsState.getInitialMetrics(), metricName,
-                endpoint.getMethod(), path, statusCode);
+            endpoint.getMethod(), path, statusCode);
         var newCount = getResourceAndStatusCounterValue(metricsState.getNewMetrics(), metricName,
-                endpoint.getMethod(), path, statusCode);
+            endpoint.getMethod(), path, statusCode);
         assertThat(newCount).isEqualTo(initialCount + increment);
     }
 
@@ -61,9 +61,9 @@ public class MetricsStepDefinitions {
     private double getResourceAndStatusCounterValue(List<MetricFamily> metrics, String metricName, String method,
                                                     String path, String status) {
         return sumCounterMetric(metrics, metricName, List.of(
-                metric -> metric.getLabels().get("method").equals(method),
-                metric -> metric.getLabels().get("path").equals(path),
-                metric -> metric.getLabels().get("status").equals(status)));
+            metric -> metric.getLabels().get("method").equals(method),
+            metric -> metric.getLabels().get("path").equals(path),
+            metric -> metric.getLabels().get("status").equals(status)));
     }
 
     private double sumCounterMetric(List<MetricFamily> metricFamilies, String metricName, List<Predicate<Metric>> filters) {
@@ -73,15 +73,15 @@ public class MetricsStepDefinitions {
     private double sumMetric(List<MetricFamily> metricFamilies, String metricName, MetricType metricType, List<Predicate<Metric>> filters) {
         var metricsStream = getMetricsStreamWithNameAndType(metricFamilies, metricName, metricType);
         return applyFilters(metricsStream, filters)
-                .map(MetricWrapper::new)
-                .mapToDouble(MetricWrapper::getValue)
-                .sum();
+            .map(MetricWrapper::new)
+            .mapToDouble(MetricWrapper::getValue)
+            .sum();
     }
 
     private Stream<Metric> getMetricsStreamWithNameAndType(List<MetricFamily> metricFamilies, String metricName, MetricType metricType) {
         return metricFamilies.stream()
-                .filter(mf -> mf.getName().equals(metricName) && mf.getType().equals(metricType))
-                .flatMap(mf -> mf.getMetrics().stream());
+            .filter(mf -> mf.getName().equals(metricName) && mf.getType().equals(metricType))
+            .flatMap(mf -> mf.getMetrics().stream());
     }
 
     private Stream<Metric> applyFilters(Stream<Metric> metricsStream, List<Predicate<Metric>> filters) {

@@ -4,7 +4,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 import java.util.List;
 
-public record Application(@JsonProperty("versions__delta") String version,
-                          @JsonProperty("apps__hashcode") String appHashCode,
-                          List<ApplicationDetail> application) {
+public record Application(
+    @JsonProperty("versions__delta") String version,
+    @JsonProperty("apps__hashcode") String appHashCode,
+    List<ApplicationDetail> application) {
 }

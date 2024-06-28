@@ -15,15 +15,15 @@ public class MetricsService {
 
     public void applicationResponseTotal(String method, String path, String status) {
         var tags = Tags.of(
-                Tag.of("method", method),
-                Tag.of("path", path),
-                Tag.of("status", status)
+            Tag.of("method", method),
+            Tag.of("path", path),
+            Tag.of("status", status)
         );
 
         Counter.builder("application.responses.total")
-                .description("Metrics for application responses per endpoint, method and http response code.")
-                .tags(tags)
-                .register(meterRegistry)
-                .increment();
+            .description("Metrics for application responses per endpoint, method and http response code.")
+            .tags(tags)
+            .register(meterRegistry)
+            .increment();
     }
 }

@@ -12,7 +12,7 @@ public class GetAppsRequestTemplate extends RequestTemplate {
 
     @Autowired
     public GetAppsRequestTemplate(@Value("${service.host}") String host,
-                                        @Value("${service.context-path:}") String contextPath) {
+                                  @Value("${service.context-path:}") String contextPath) {
         super(host, contextPath);
     }
 
