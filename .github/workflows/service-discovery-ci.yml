@@ -4,15 +4,21 @@ on:
   push:
     branches: [ main ]
     paths:
-      - sd-app/**
-      - sd-ft/**
-      - gradle/libs.versions.toml
+      - 'gradle/**'
+      - '**.gradle'
+      - 'gradle.properties'
+      - 'sd-app/**'
+      - 'sd-ft/**'
+      - '.github/workflows/service-discovery-ci.yml'
   pull_request:
     branches: [ main ]
     paths:
-      - sd-app/**
-      - sd-ft/**
-      - gradle/libs.versions.toml
+      - 'gradle/**'
+      - '**.gradle'
+      - 'gradle.properties'
+      - 'sd-app/**'
+      - 'sd-ft/**'
+      - '.github/workflows/service-discovery-ci.yml'
   workflow_dispatch:
     inputs:
       logLevel:

@@ -4,13 +4,15 @@ on:
   push:
     branches: [ main ]
     paths:
-      - sd-app/**
-      - sd-ft/**
+      - 'sd-app/**'
+      - 'sd-ft/**'
+      - '.github/workflows/sonarcloud-analyses.yml'
   pull_request:
     branches: [ main ]
     paths:
-      - sd-app/**
-      - sd-ft/**
+      - 'sd-app/**'
+      - 'sd-ft/**'
+      - '.github/workflows/sonarcloud-analyses.yml'
 
 jobs:
   sonar-analyses:
