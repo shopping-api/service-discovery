@@ -47,7 +47,7 @@ jobs:
         with:
           name: unit-tests-report
           path: |
-            sd-app/reports/tests/test/
+            sd-app/build/reports/tests/test/**/*
 
       - name: Start Spring Boot app
         run: java -jar sd-app/build/libs/service-discovery.jar &
