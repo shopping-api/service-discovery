@@ -27,9 +27,9 @@ on:
         default: 'debug'
         type: choice
         options:
-        - info
-        - warning
-        - debug
+          - info
+          - warning
+          - debug
 
 jobs:
   build-and-unit-tests:
@@ -100,13 +100,12 @@ jobs:
         if: always()
         uses: actions/upload-artifact@v4
         with:
-            name: cucumber-tests-report
-            path: |
-                sd-ft/reports/cucumber-report.html
-
+          name: cucumber-tests-report
+          path: |
+            sd-ft/reports/cucumber-report.html
 
   build-docker-image:
-    needs: functional-tests
+    needs: build-and-unit-tests
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
