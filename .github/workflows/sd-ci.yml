@@ -9,7 +9,7 @@ on:
       - 'gradle.properties'
       - 'sd-app/**'
       - 'sd-ft/**'
-      - '.github/workflows/service-discovery-ci.yml'
+      - '.github/workflows/sd-ci.yml'
   pull_request:
     branches: [ main ]
     paths:
@@ -18,7 +18,7 @@ on:
       - 'gradle.properties'
       - 'sd-app/**'
       - 'sd-ft/**'
-      - '.github/workflows/service-discovery-ci.yml'
+      - '.github/workflows/sd-ci.yml'
   workflow_dispatch:
     inputs:
       logLevel:
