@@ -55,7 +55,7 @@ jobs:
           path: |
             sd-app/build/reports/tests/test/**/*
 
-      - name: Archive JAR
+      - name: Upload JAR
         uses: actions/upload-artifact@v4
         with:
           name: App jar

@@ -2,7 +2,7 @@ name: Functional tests
 
 on:
   workflow_run:
-    workflows: ["Build and Test"]
+    workflows: ["Build and unit test"]
     types:
       - completed
 
