@@ -21,7 +21,7 @@ java {
 }
 
 scmVersion {
-    tag { prefix = rootProject.name + '-' }
+    tag { prefix = 'v' }
     versionIncrementer 'incrementMinor'
 }
 project.version = scmVersion.version
