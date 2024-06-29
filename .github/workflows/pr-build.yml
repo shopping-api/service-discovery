@@ -1,15 +1,6 @@
-name: CI Workflow
+name: PR Build
 
 on:
-  push:
-    branches: [ main ]
-    paths:
-      - 'gradle/**'
-      - '**.gradle'
-      - 'gradle.properties'
-      - 'sd-app/**'
-      - 'sd-ft/**'
-      - '.github/workflows/sd-ci.yml'
   pull_request:
     branches: [ main ]
     paths:
@@ -18,7 +9,7 @@ on:
       - 'gradle.properties'
       - 'sd-app/**'
       - 'sd-ft/**'
-      - '.github/workflows/sd-ci.yml'
+      - '.github/workflows/pr-build.yml'
   workflow_dispatch:
     inputs:
       logLevel:
