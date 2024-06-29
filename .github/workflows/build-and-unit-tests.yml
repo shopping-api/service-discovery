@@ -1,0 +1,62 @@
+name: Build and unit test
+
+on:
+  push:
+    branches: [ main ]
+    paths:
+      - 'gradle/**'
+      - '**.gradle'
+      - 'gradle.properties'
+      - 'sd-app/**'
+      - 'sd-ft/**'
+      - '.github/workflows/build-and-unit-tests.yml'
+  pull_request:
+    branches: [ main ]
+    paths:
+      - 'gradle/**'
+      - '**.gradle'
+      - 'gradle.properties'
+      - 'sd-app/**'
+      - 'sd-ft/**'
+      - '.github/workflows/build-and-unit-tests.yml'
+  workflow_dispatch:
+    inputs:
+      logLevel:
+        description: 'Log level'
+        required: true
+        default: 'debug'
+        type: choice
+        options:
+        - info
+        - warning
+        - debug
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up JDK 21
+        uses: actions/setup-java@v4
+        with:
+          java-version: '21'
+          distribution: 'temurin'
+
+      - name: Build + unit tests
+        run: ./gradlew --no-daemon :sd-app:build
+
+      - name: Archive unit test reports
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: unit-tests-report
+          path: |
+            sd-app/build/reports/tests/test/**/*
+
+      - name: Archive JAR
+        uses: actions/upload-artifact@v4
+        with:
+          name: App jar
+          path: sd-app/build/libs/service-discovery.jar
