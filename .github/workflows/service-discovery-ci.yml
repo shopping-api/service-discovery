@@ -32,7 +32,7 @@ on:
         - debug
 
 jobs:
-  build-and-unit-test:
+  build-and-unit-tests:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
@@ -45,9 +45,9 @@ jobs:
           distribution: 'temurin'
 
       - name: Build + unit tests
-        run: ./gradlew --no-daemon :sd-app:build
+        run: ./gradlew :sd-app:build
 
-      - name: Archive unit test reports
+      - name: Upload unit tests report
         if: always()
         uses: actions/upload-artifact@v4
         with:
@@ -58,11 +58,11 @@ jobs:
       - name: Upload JAR
         uses: actions/upload-artifact@v4
         with:
-          name: App jar
+          name: app-jar
           path: sd-app/build/libs/service-discovery.jar
 
-  funcional-tests:
-    needs: build-and-unit-test
+  functional-tests:
+    needs: build-and-unit-tests
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
@@ -77,8 +77,8 @@ jobs:
       - name: Download JAR
         uses: actions/download-artifact@v4
         with:
-          name: App jar
-          path: sd-app/build/libs/service-discovery.jar
+          name: app-jar
+          path: sd-app/build/libs/
 
       - name: Start Spring Boot app
         run: java -jar sd-app/build/libs/service-discovery.jar &
@@ -103,3 +103,20 @@ jobs:
             name: cucumber-tests-report
             path: |
                 sd-ft/reports/cucumber-report.html
+
+
+  build-docker-image:
+    needs: functional-tests
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Download JAR
+        uses: actions/download-artifact@v4
+        with:
+          name: app-jar
+          path: sd-app/build/libs/
+
+      - name: Build Docker Image
+        run: docker build -t myapp:${{ github.sha }} sd-app/
