@@ -1,5 +1,5 @@
 # Service Discovery
-[![Build and test](https://github.com/groot-mg/service-discovery/actions/workflows/service-discovery-ci.yml/badge.svg)](https://github.com/groot-mg/service-discovery/actions/workflows/service-discovery-ci.yml) [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=groot-mg_service-discovery&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=groot-mg_service-discovery) [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://github.com/groot-mg/service-discovery/blob/main/LICENSE)
+[![CI Workflow](https://github.com/groot-mg/service-discovery/actions/workflows/sd-ci-cd.yml/badge.svg)](https://github.com/groot-mg/service-discovery/actions/workflows/sd-ci-cd.yml) [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=groot-mg_service-discovery&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=groot-mg_service-discovery) [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://github.com/groot-mg/service-discovery/blob/main/LICENSE)
 
 The purpose of a service discovery is load balancing and failover of middle-tier servers. It plays a critical role a mid-tier infra.
 
