@@ -40,3 +40,6 @@ management:
   health:
     diskspace:
       enabled: false
+  metrics:
+    tags:
+      application: ${spring.application.name}
