@@ -12,7 +12,7 @@ eurekaServerVersion = '4.1.3'
 owaspEncoderVersion = '1.2.3'
 
 ## Test Libraries
-cucumberVersion = '7.18.0'
+cucumberVersion = '7.18.1'
 jacksonDataBindingVersion = '2.17.2'
 prometheusScraperVersion = '0.23.0.Final'
 googleGuavaVersion = '33.2.1-jre'
