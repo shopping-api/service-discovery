@@ -1,6 +1,6 @@
 [versions]
 ## Plugin versions
-springVersion = '3.3.1'
+springVersion = '3.3.4'
 springDependencyManagementVersion = '1.1.6'
 gitPropertiesVersion = '2.4.2'
 axionReleaseVersion = '1.18.1'
